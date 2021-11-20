@@ -9,6 +9,15 @@ export class CategoriaVehiculo extends Entity {
   })
   id?: number;
 
+  @property({
+    type: 'number',
+  })
+  id_vehiculo?: number;
+
+  @property({
+    type: 'number',
+  })
+  id_categoria?: number;
 
   constructor(data?: Partial<CategoriaVehiculo>) {
     super(data);
