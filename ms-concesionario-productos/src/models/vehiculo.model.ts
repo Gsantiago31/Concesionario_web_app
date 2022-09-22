@@ -5,7 +5,24 @@ import {CategoriaVehiculo} from './categoria-vehiculo.model';
 import {Foto} from './foto.model';
 import {Proveedor} from './proveedor.model';
 
-@model()
+@model({
+  settings: {
+    foreignKeys: {
+      fk_vehiculo_id_proveedor: {
+        name: 'fk_vehiculo_id_proveedor',
+        entity: 'Proveedor',
+        entityKey: 'id',
+        foreignKey: 'id_proveedor',
+      },
+      fk_vehiculo_id_marca: {
+        name: 'fk_vehiculo_marca',
+        entity: 'Marca',
+        entityKey: 'id',
+        foreignKey: 'id_marca',
+      },
+    },
+  },
+})
 export class Vehiculo extends Entity {
   @property({
     type: 'number',

@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasOne} from '@loopback/repository';
+import {Factura} from './factura.model';
 
 @model()
 export class Ventas extends Entity {
@@ -39,6 +40,8 @@ export class Ventas extends Entity {
   })
   id_factura: number;
 
+  @hasOne(() => Factura, {keyTo: 'id_venta'})
+  factura: Factura;
 
   constructor(data?: Partial<Ventas>) {
     super(data);
